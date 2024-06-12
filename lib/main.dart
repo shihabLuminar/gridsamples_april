@@ -11,6 +11,68 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List myItems = [
+      {
+        "url":
+            "https://images.pexels.com/photos/1986996/pexels-photo-1986996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 1",
+        "price": 100
+      },
+      {
+        "url":
+            "https://images.pexels.com/photos/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 2",
+        "price": 200
+      },
+      {
+        "url":
+            "https://images.pexels.com/photos/1936848/pexels-photo-1936848.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 3",
+        "price": 300
+      },
+      {
+        "url":
+            "https://images.pexels.com/photos/157888/fashion-glasses-go-pro-female-157888.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 4",
+        "price": 400
+      },
+      {
+        "url":
+            "https://images.pexels.com/photos/4452400/pexels-photo-4452400.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 5",
+        "price": 500
+      },
+      {
+        "url":
+            "https://images.pexels.com/photos/4452400/pexels-photo-4452400.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 6",
+        "price": 600
+      },
+      {
+        "url":
+            "https://images.pexels.com/photos/4452399/pexels-photo-4452399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 7",
+        "price": 700
+      },
+      {
+        "url":
+            "https://images.pexels.com/photos/934064/pexels-photo-934064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 8",
+        "price": 800
+      },
+      {
+        "url":
+            "https://images.pexels.com/photos/934064/pexels-photo-934064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 9",
+        "price": 900
+      },
+      {
+        "url":
+            "https://images.pexels.com/photos/12541460/pexels-photo-12541460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "title": "Item 10",
+        "price": 1000
+      },
+    ];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -95,7 +157,106 @@ class MyApp extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+
+            SizedBox(
+              height: 16,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 25),
+                      height: 45,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Text(
+                        "All",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 25),
+                      height: 45,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(.2),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Text(
+                        "Men",
+                        style: TextStyle(fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 25),
+                      height: 45,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(.2),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Text(
+                        "Women",
+                        style: TextStyle(fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 25),
+                      height: 45,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(.2),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Text(
+                        "Kids",
+                        style: TextStyle(fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+                child: GridView.builder(
+              itemCount: myItems.length,
+              padding: EdgeInsets.all(20),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 15,
+                crossAxisSpacing: 15,
+                mainAxisExtent: 250,
+              ),
+              itemBuilder: (context, index) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 200,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.grey.withOpacity(.2),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(myItems[index]["url"]))),
+                  ),
+                  Text(
+                    myItems[index]["title"],
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                  ),
+                  Text(myItems[index]["price"].toString()),
+                ],
+              ),
+            ))
           ],
         ),
       ),
