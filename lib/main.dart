@@ -238,6 +238,7 @@ class MyApp extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
+                    padding: EdgeInsets.all(15),
                     height: 200,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -245,6 +246,18 @@ class MyApp extends StatelessWidget {
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(myItems[index]["url"]))),
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      height: 45,
+                      width: 45,
+                      decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(.7),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Icon(
+                        Icons.favorite_outline,
+                        size: 30,
+                      ),
+                    ),
                   ),
                   Text(
                     myItems[index]["title"],
