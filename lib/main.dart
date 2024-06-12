@@ -116,7 +116,7 @@ class MyApp extends StatelessWidget {
                   Expanded(
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 15),
-                      height: 60,
+                      height: 50,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.grey.withOpacity(.2)),
@@ -124,7 +124,7 @@ class MyApp extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.search,
-                            size: 40,
+                            size: 30,
                           ),
                           SizedBox(
                             width: 10,
@@ -133,7 +133,7 @@ class MyApp extends StatelessWidget {
                             "Search anything",
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              fontSize: 20,
+                              fontSize: 18,
                               color: Colors.grey,
                             ),
                           )
@@ -145,8 +145,8 @@ class MyApp extends StatelessWidget {
                     width: 16,
                   ),
                   Container(
-                    height: 60,
-                    width: 60,
+                    height: 50,
+                    width: 50,
                     decoration: BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(10)),
@@ -223,6 +223,9 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            SizedBox(
+              height: 16,
             ),
             Expanded(
                 child: GridView.builder(
